@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My App Updates</title>
+
+  <title>Unique App APK</title>
 
   <style>
     * {
@@ -12,131 +13,386 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2, #23a6d5);
+      background: linear-gradient(135deg, #0b0b0b, #1c1c1c);
       color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      background: rgba(20, 20, 20, 0.95);
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #d4af37, #8a6a12);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      font-size: 25px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 700px;
-      text-align: center;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      padding: 40px 25px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    }
-
-    .logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: 34px;
-    }
-
-    .subtitle {
-      font-size: 17px;
-      line-height: 1.6;
-      opacity: 0.9;
-      margin-bottom: 30px;
-    }
-
-    .update {
-      text-align: left;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 18px;
-      padding: 18px;
-      margin: 12px 0;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .update h3 {
-      margin: 0 0 7px;
-    }
-
-    .update p {
+    .brand h1 {
       margin: 0;
-      opacity: 0.85;
+      font-size: 22px;
+      color: #d4af37;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .menu-button {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      right: 15px;
+      top: 70px;
+      width: 190px;
+      background: #1d1d1d;
+      border: 1px solid #444;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .menu button {
+      width: 100%;
+      padding: 16px;
+      background: transparent;
+      border: none;
+      color: white;
+      text-align: left;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .menu button:hover {
+      background: #2c2c2c;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 18px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .hero h2 {
+      color: #d4af37;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 30px 0 18px;
+      color: #d4af37;
+    }
+
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .app-card {
+      background: linear-gradient(145deg, #202020, #141414);
+      border: 1px solid #3a3a3a;
+      border-radius: 22px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    .app-icon {
+      width: 90px;
+      height: 90px;
+      margin: auto;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #d4af37, #6f5310);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+    }
+
+    .app-card h3 {
+      margin: 18px 0 8px;
+      font-size: 22px;
+    }
+
+    .version {
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    .description {
+      color: #aaa;
+      font-size: 14px;
       line-height: 1.5;
     }
 
     .button {
       display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
+      margin-top: 15px;
+      padding: 13px 22px;
       border-radius: 30px;
-      background: white;
-      color: #5b4bb7;
+      background: linear-gradient(135deg, #d4af37, #9a7518);
+      color: black;
       text-decoration: none;
       font-weight: bold;
     }
 
+    .hidden-section {
+      display: none;
+    }
+
+    .update-card {
+      background: #1d1d1d;
+      border: 1px solid #333;
+      border-radius: 18px;
+      padding: 18px;
+      margin: 12px 0;
+    }
+
+    .update-card h3 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+
     footer {
-      margin-top: 20px;
+      text-align: center;
+      padding: 30px 15px;
+      color: #777;
       font-size: 13px;
-      opacity: 0.75;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="card">
+  <header>
 
-      <div class="logo">🚀</div>
+    <div class="brand">
+      <div class="brand-icon">📱</div>
 
-      <h1>My App Updates</h1>
-
-      <p class="subtitle">
-        Welcome! Stay updated with the latest news, features and improvements.
-      </p>
-
-      <div class="update">
-        <h3>✨ Latest Update</h3>
-        <p>New features and improvements are coming soon.</p>
+      <div>
+        <h1>Unique App APK</h1>
+        <p>Your App Update Center</p>
       </div>
+    </div>
 
-      <div class="update">
-        <h3>⚡ Fast & Simple</h3>
-        <p>A clean and premium experience designed for everyone.</p>
+    <button class="menu-button" onclick="toggleMenu()">⋮</button>
+
+    <div class="menu" id="menu">
+      <button onclick="showSection('latest')">🆕 Latest Updates</button>
+      <button onclick="showSection('about')">ℹ️ About</button>
+      <button onclick="showSection('home')">🏠 Home</button>
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <div id="home">
+
+      <section class="hero">
+        <h2>Welcome to Unique App APK</h2>
+        <p>
+          Download the latest versions of your favorite applications
+          and stay updated with new releases.
+        </p>
+      </section>
+
+
+      <h2 class="section-title">📱 Available Applications</h2>
+
+
+      <div class="apps">
+
+        <!-- APP 1 -->
+        <div class="app-card">
+
+          <div class="app-icon">📱</div>
+
+          <h3>My First App</h3>
+
+          <p class="version">Latest Version: v1.0</p>
+
+          <p class="description">
+            Download the latest version of this application.
+          </p>
+
+          <a href="#" class="button">Download APK</a>
+
+        </div>
+
+
+        <!-- APP 2 -->
+        <div class="app-card">
+
+          <div class="app-icon">🚀</div>
+
+          <h3>My Second App</h3>
+
+          <p class="version">Coming Soon</p>
+
+          <p class="description">
+            This application will be available soon.
+          </p>
+
+          <a href="#" class="button">Coming Soon</a>
+
+        </div>
+
+
+        <!-- APP 3 -->
+        <div class="app-card">
+
+          <div class="app-icon">⭐</div>
+
+          <h3>My Third App</h3>
+
+          <p class="version">Coming Soon</p>
+
+          <p class="description">
+            More applications will be added here in the future.
+          </p>
+
+          <a href="#" class="button">Coming Soon</a>
+
+        </div>
+
       </div>
-
-      <div class="update">
-        <h3>📱 Mobile Friendly</h3>
-        <p>This website works beautifully on mobile devices.</p>
-      </div>
-
-      <a class="button" href="#">Explore Updates</a>
 
     </div>
 
-    <footer>
-      © 2026 My App Updates
-    </footer>
 
-  </div>
+    <!-- LATEST UPDATES -->
+
+    <div id="latest" class="hidden-section">
+
+      <h2 class="section-title">🆕 Latest Updates</h2>
+
+      <div class="update-card">
+
+        <h3>My First App — v1.0</h3>
+
+        <p>Latest version of the application.</p>
+
+        <p>Previous versions will appear here in the future.</p>
+
+      </div>
+
+      <div class="update-card">
+
+        <h3>Older Versions</h3>
+
+        <p>v0.9 — Previous version</p>
+
+        <p>v0.8 — Previous version</p>
+
+      </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <div id="about" class="hidden-section">
+
+      <h2 class="section-title">ℹ️ About Unique App APK</h2>
+
+      <div class="update-card">
+
+        <h3>About This Website</h3>
+
+        <p>
+          Unique App APK is a platform where applications and their
+          latest updates can be shared in one place.
+        </p>
+
+        <p>
+          New apps, new versions and future updates will be added here.
+        </p>
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+  <footer>
+    © 2026 Unique App APK — All Rights Reserved
+  </footer>
+
+
+  <script>
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+
+
+    function showSection(section) {
+
+      document.getElementById("home").style.display = "none";
+      document.getElementById("latest").style.display = "none";
+      document.getElementById("about").style.display = "none";
+
+      document.getElementById(section).style.display = "block";
+
+      document.getElementById("menu").style.display = "none";
+
+      window.scrollTo(0, 0);
+    }
+
+  </script>
 
 </body>
 </html>
