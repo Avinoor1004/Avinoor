@@ -177,6 +177,11 @@
       color: black;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 0.9;
     }
 
     .hidden-section {
@@ -194,6 +199,40 @@
     .update-card h3 {
       color: #d4af37;
       margin-top: 0;
+    }
+
+    .previous-version {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      text-align: left;
+    }
+
+    .previous-version-title {
+      color: #d4af37;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .version-box {
+      background: #191919;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    .version-box-title {
+      font-weight: bold;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .version-box-text {
+      color: #999;
+      font-size: 13px;
+      margin: 0;
     }
 
     footer {
@@ -235,6 +274,7 @@
 
       <section class="hero">
         <h2>Welcome to Unique App APK</h2>
+
         <p>
           Download the latest versions of your favorite applications
           and stay updated with new releases.
@@ -254,13 +294,52 @@
 
           <h3>My First App</h3>
 
-          <p class="version">Latest Version: v2.0</p>
+          <p class="version">
+            Latest Version: v2.0
+          </p>
 
           <p class="description">
             Download the latest version of this application.
           </p>
 
-          <a href="https://github.com/Avinoor1004/Avinoor/releases/download/v1.0.0/Edit.Flow.Pro.v.2.0.apk" class="button">Download APK</a>
+
+          <!-- LATEST APK -->
+
+          <a
+            href="https://github.com/Avinoor1004/Avinoor/releases/download/v1.0.0/Edit.Flow.Pro.v.2.0.apk"
+            class="button">
+            Download Latest APK
+          </a>
+
+
+          <!-- PREVIOUS VERSIONS -->
+
+          <div class="previous-version">
+
+            <div class="previous-version-title">
+              📦 Previous Versions
+            </div>
+
+
+            <div class="version-box">
+
+              <div class="version-box-title">
+                My First App — v1.0
+              </div>
+
+              <p class="version-box-text">
+                Previous stable version
+              </p>
+
+              <a
+                href="https://github.com/Avinoor1004/Avinoor/releases/download/v1.0.0/Edit.Flow.Pro.v.1.0.apk"
+                class="button">
+                Download v1.0
+              </a>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -272,13 +351,19 @@
 
           <h3>My Second App</h3>
 
-          <p class="version">Coming Soon</p>
+          <p class="version">
+            Coming Soon
+          </p>
 
           <p class="description">
             This application will be available soon.
           </p>
 
-          <a href="#" class="button">Coming Soon</a>
+          <a
+            href="#"
+            class="button">
+            Coming Soon
+          </a>
 
         </div>
 
@@ -290,13 +375,19 @@
 
           <h3>My Third App</h3>
 
-          <p class="version">Coming Soon</p>
+          <p class="version">
+            Coming Soon
+          </p>
 
           <p class="description">
             More applications will be added here in the future.
           </p>
 
-          <a href="#" class="button">Coming Soon</a>
+          <a
+            href="#"
+            class="button">
+            Coming Soon
+          </a>
 
         </div>
 
@@ -309,25 +400,49 @@
 
     <div id="latest" class="hidden-section">
 
-      <h2 class="section-title">🆕 Latest Updates</h2>
+      <h2 class="section-title">
+        🆕 Latest Updates
+      </h2>
+
 
       <div class="update-card">
 
-        <h3>My First App — v1.0</h3>
+        <h3>
+          My First App — v2.0
+        </h3>
 
-        <p>Latest version of the application.</p>
+        <p>
+          Latest version of the application.
+        </p>
 
-        <p>Previous versions will appear here in the future.</p>
+        <p>
+          The latest APK is available for download.
+        </p>
+
+        <a
+          href="https://github.com/Avinoor1004/Avinoor/releases/download/v1.0.0/Edit.Flow.Pro.v.2.0.apk"
+          class="button">
+          Download v2.0
+        </a>
 
       </div>
 
+
       <div class="update-card">
 
-        <h3>Older Versions</h3>
+        <h3>
+          📦 Older Versions
+        </h3>
 
-        <p>v0.9 — Previous version</p>
+        <p>
+          My First App — v1.0
+        </p>
 
-        <p>v0.8 — Previous version</p>
+        <a
+          href="https://github.com/Avinoor1004/Avinoor/releases/download/v1.0.0/Edit.Flow.Pro.v.1.0.apk"
+          class="button">
+          Download v1.0
+        </a>
 
       </div>
 
@@ -338,11 +453,15 @@
 
     <div id="about" class="hidden-section">
 
-      <h2 class="section-title">ℹ️ About Unique App APK</h2>
+      <h2 class="section-title">
+        ℹ️ About Unique App APK
+      </h2>
 
       <div class="update-card">
 
-        <h3>About This Website</h3>
+        <h3>
+          About This Website
+        </h3>
 
         <p>
           Unique App APK is a platform where applications and their
@@ -369,27 +488,39 @@
   <script>
 
     function toggleMenu() {
+
       const menu = document.getElementById("menu");
 
       if (menu.style.display === "block") {
+
         menu.style.display = "none";
+
       } else {
+
         menu.style.display = "block";
+
       }
+
     }
 
 
     function showSection(section) {
 
       document.getElementById("home").style.display = "none";
+
       document.getElementById("latest").style.display = "none";
+
       document.getElementById("about").style.display = "none";
+
 
       document.getElementById(section).style.display = "block";
 
+
       document.getElementById("menu").style.display = "none";
 
+
       window.scrollTo(0, 0);
+
     }
 
   </script>
